@@ -1,0 +1,49 @@
+package customsound;
+
+import arc.Core;
+import arc.Events;
+import arc.audio.Music;
+import arc.audio.Sound;
+import arc.files.Fi;
+import mindustry.game.EventType;
+import mindustry.gen.Musics;
+import mindustry.gen.Sounds;
+import mindustry.mod.Mod;
+
+import static mindustry.Vars.*;
+
+public class CustomSoundMod extends Mod {
+
+    @Override
+    public void init() {
+        // サーバー（画面なし）では音を鳴らさない
+        if (headless) return;
+
+        // ゲーム起動完了後に音声を差し替える
+        Events.on(EventType.ClientLoadEvent.class, e -> {
+            replaceSounds();
+            replaceMusic();
+        });
+    }
+
+    private void replaceSounds() {
+        // タップ音（ボタンクリック音）の差し替え
+        // assets/sounds/tap.ogg がある場合に読み込む
+        Fi tapFile = tree.get("sounds/tap.ogg");
+        if (tapFile.exists()) {
+            Sound customTap = new Sound(tapFile);
+            Sounds.buttonClick = customTap;
+            Sounds.uiButton = customTap;
+        }
+    }
+
+    private void replaceMusic() {
+        // メニュー画面のBGMの差し替え
+        // assets/music/menu.ogg がある場合に読み込む
+        Fi menuFile = tree.get("music/menu.ogg");
+        if (menuFile.exists()) {
+            Music customMenu = new Music(menuFile);
+            Musics.menu = customMenu;
+        }
+    }
+}
