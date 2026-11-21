@@ -1,0 +1,11 @@
+{
+  "name": "custom-sound-mod",
+  "displayName": "blue archive Sound Mod",
+  "author": "Tkesan",
+  "description": "BGMとタップ時のサウンドを変更するMOD",
+  "version": "1.0.0",
+  "minGameVersion": 154,
+  "dependencies": [],
+  "java": true,
+  "main": "customsound.CustomSoundMod"
+}
