@@ -27,8 +27,7 @@ public class CustomSoundMod extends Mod {
         Fi tapFile = tree.get("sounds/tap.ogg");
         if (tapFile.exists()) {
             Sound customTap = new Sound(tapFile);
-            Sounds.buttonClick = customTap;
-            Sounds.uiButton = customTap;
+            Sounds.click = customTap;
         }
     }
 
