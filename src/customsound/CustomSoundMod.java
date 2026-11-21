@@ -31,7 +31,6 @@ public class CustomSoundMod extends Mod {
             try {
                 Sound customTap = new Sound(tapFile);
                 Sounds.click = customTap;
-                Sounds.back = customTap;
             } catch (Exception e) {
                 Log.err("[CustomSoundMod] Failed to load tap sound", e);
             }
