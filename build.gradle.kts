@@ -17,6 +17,13 @@ dependencies {
     compileOnly("com.github.Anuken.Mindustry:core:$mindustryVersion")
 }
 
+sourceSets {
+    main {
+        java.setSrcDirs(listOf("src"))
+        resources.setSrcDirs(listOf("assets"))
+    }
+}
+
 tasks.withType<JavaCompile>().configureEach {
     sourceCompatibility = "17"
     targetCompatibility = "17"
