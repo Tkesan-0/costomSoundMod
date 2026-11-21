@@ -34,8 +34,12 @@ public class CustomSoundMod extends Mod {
     private void replaceMusic() {
         Fi menuFile = tree.get("music/menu.ogg");
         if (menuFile.exists()) {
-            Music customMenu = new Music(menuFile);
-            Musics.menu = customMenu;
+            try {
+                Music customMenu = new Music(menuFile);
+                Musics.menu = customMenu;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
