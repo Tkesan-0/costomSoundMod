@@ -31,6 +31,7 @@ tasks.withType<JavaCompile>().configureEach {
 }
 
 tasks.jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     archiveFileName.set("${project.name}.jar")
     from(*configurations.runtimeClasspath.get().files.map { if (it.isDirectory) it else zipTree(it) }.toTypedArray())
     from(rootDir) {
